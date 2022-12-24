@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	ssize_t nread;
 	unsigned long num;
+	unsigned long test_num;
 
 	if (argc != 2)
 	{
@@ -35,7 +36,17 @@ int main(int argc, char *argv[])
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
 		num = atoi(strtok(line, "\n"));
-		printf("%ld\n", num);
+		if (num == 1)
+		{
+			printf("%ld=%ld*%ld\n", num, num, num);
+			continue;
+		}
+		test_num = 2;
+		while (num > 0 && test_num != num &&
+				(num % test_num) != 0)
+			test_num++;
+		printf("%ld=%ld*%ld\n", num, num / test_num, test_num);
+		
 	}
 
 	fclose(stream);
