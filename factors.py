@@ -20,7 +20,7 @@ try:
                 print(message.format(num, num, num))
             while num > 0 and test_num != num and (num % test_num) != 0:
                 test_num += 1
-            print(message.format(num, int(num / test_num), test_num))
+            print(message.format(num, num // test_num, test_num))
 except FileNotFoundError:
     print("E: Unable to open file \"{}\"".format(sys.argv[1]))
     sys.exit(-1)
