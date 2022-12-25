@@ -39,11 +39,6 @@ int main(int argc, char *argv[])
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
 		num = strtoull(strtok(line, "\n"), &end_ptr, base);
-		if (num == 1)
-		{
-			printf("%lld=%lld*%lld\n", num, num, num);
-			continue;
-		}
 		test_num = 2;
 		while (num > 0 && test_num != num &&
 				(num % test_num) != 0)
